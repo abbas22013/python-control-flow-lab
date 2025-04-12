@@ -40,20 +40,19 @@ print_greeting()
 # - Ensure to provide feedback for non-alphabetical or invalid entries.
 
 def check_letter():
-    # Your control flow logic goes here
- letter = input('please enter a letter: ')
- if len(letter) == 1 and letter.isalpha():
-    letter = letter.lower()
-
-    if letter in 'aeiou':
+    letter = input("Enter a letter (a-z or A-Z): ")
+    
+    if len(letter) != 1 or not letter.isalpha():
+        print("Invalid input. Please enter a single letter.")
+        return
+    
+    lower_letter = letter.lower()
+    if lower_letter in "aeiou":
         print(f"The letter {letter} is a vowel.")
     else:
         print(f"The letter {letter} is a consonant.")
- else:
-    print("Invalid input! Please enter a single letter (a-z or A-Z).")
-# Call the function
-check_letter()
 
+check_letter()
 
 
 
@@ -149,25 +148,21 @@ def calculate_dog_years():
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
  def weather_advice():
+    cold = input("Is it cold? (yes/no): ").lower()
+    raining = input("Is it raining? (yes/no): ").lower()
     
-    is_cold = input("Is it cold? (yes/no): ").strip().lower()
-
-    is_raining = input("Is it raining? (yes/no): ").strip().lower()
-
-    if is_cold == 'yes' and is_raining == 'yes':
+    if cold == 'yes' and raining == 'yes':
         print("Wear a waterproof coat.")
-    elif is_cold == 'yes' and is_raining == 'no':
+    elif cold == 'yes' and raining == 'no':
         print("Wear a warm coat.")
-    elif is_cold == 'no' and is_raining == 'yes':
+    elif cold == 'no' and raining == 'yes':
         print("Carry an umbrella.")
-    elif is_cold == 'no' and is_raining == 'no':
+    elif cold == 'no' and raining == 'no':
         print("Wear light clothing.")
     else:
         print("Invalid input. Please enter 'yes' or 'no'.")
 
-# Call the function
  weather_advice()
-
 
 
 
@@ -191,36 +186,18 @@ def calculate_dog_years():
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
 def determine_season():
-
-    month = input("Enter the month of the year (Jan - Dec): ").strip().capitalize()
-
+    month = input("Enter month (Jan - Dec): ").lower()
+    day = int(input("Enter day: "))
     
-    day_input = input("Enter the day of the month: ").strip()
-
-    
-    if not day_input.isdigit():
-        print("Invalid day input. Please enter a valid number for the day.")
-        return  
-    day = int(day_input)
-
-    
-    if day < 1 or day > 31:
-        print("Invalid day. Please enter a valid day between 1 and 31.")
-        return  
-
-    
-    if month == "Dec" and day >= 21 or month == "Jan" or month == "Feb" or (month == "Mar" and day <= 19):
-        print(f"{month} {day} is in Winter.")
-    elif month == "Mar" and day >= 20 or month == "Apr" or month == "May" or (month == "Jun" and day <= 20):
-        print(f"{month} {day} is in Spring.")
-    elif month == "Jun" and day >= 21 or month == "Jul" or month == "Aug" or (month == "Sep" and day <= 21):
-        print(f"{month} {day} is in Summer.")
-    elif month == "Sep" and day >= 22 or month == "Oct" or month == "Nov" or (month == "Dec" and day <= 20):
-        print(f"{month} {day} is in Fall.")
+    if month in ('dec', 'jan', 'feb') or (month == 'mar' and day < 20):
+        print("Winter")
+    elif month in ('mar', 'apr', 'may') or (month == 'jun' and day < 21):
+        print("Spring")
+    elif month in ('jun', 'jul', 'aug') or (month == 'sep' and day < 22):
+        print("Summer")
     else:
-        print("Invalid input. Please enter a valid month and day.")
+        print("Fall")
 
-# Call the function
 determine_season()
 
 
