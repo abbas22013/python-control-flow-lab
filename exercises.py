@@ -121,12 +121,18 @@ check_voting_eligibility()
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
 def calculate_dog_years():
-    # Your control flow logic goes here
+    age = int(input("Input a dog's age: "))
+    
+    if age <= 2:
+        dog_years = age * 10
+    else:
+        dog_years = 20 + (age - 2) * 7
 
-#I need help to solve question 
+    print(f"The dog's age in dog years is {dog_years}.")
 
-# Call the function
-# calculate_dog_years()
+calculate_dog_years()
+
+
 
 
 
@@ -146,8 +152,7 @@ def calculate_dog_years():
 #
 # Hints:
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
-
- def weather_advice():
+def weather_advice():
     cold = input("Is it cold? (yes/no): ").lower()
     raining = input("Is it raining? (yes/no): ").lower()
     
@@ -162,7 +167,8 @@ def calculate_dog_years():
     else:
         print("Invalid input. Please enter 'yes' or 'no'.")
 
- weather_advice()
+weather_advice()
+
 
 
 
@@ -184,7 +190,6 @@ def calculate_dog_years():
 # - Use 'in' to check if a string is in a list or tuple.
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
-
 def determine_season():
     month = input("Enter month (Jan - Dec): ").lower()
     day = int(input("Enter day: "))
@@ -197,8 +202,11 @@ def determine_season():
         print("Summer")
     else:
         print("Fall")
-
 determine_season()
+
+
+
+
 
 
 
